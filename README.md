@@ -97,9 +97,9 @@ deactivate
 ```
 > OS와 응용프로그램간의 python version 및 package를 다르게 가져갈 수 있음  
 > OS의 python version 및 package  
-> ![OS의 환경](image/python_osenv.jpg)  
+> ![OS의 환경](image/python_osenv.JPG)  
 > 응용프로그램의 python version 및 package  
-> ![App의 환경](image/python_appenv.jpg)  
+> ![App의 환경](image/python_appenv.JPG)  
 ---
 ## Flask를 이용한 API 제작
 
