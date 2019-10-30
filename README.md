@@ -65,6 +65,12 @@ pip install --no-index --find-links . <package>
 ### 가상 환경 구성
 virtualenv 혹은 venv(3.4 이후는 기본 설치) 사용  
 구동 되었을 때 앞이 *(venv)* 로 변경됨  
+> OS와 응용프로그램간의 python version 및 package를 다르게 가져갈 수 있음  
+>
+|OS의 python version 및 package  |응용프로그램의 python version 및 package |
+|---|---|
+|![OS의 환경](image/python_osenv.JPG)  |![App의 환경](image/python_appenv.JPG)  |  
+
 * 가상 환경을 구축하여 서로 다른 응용 프로그램간의 영향을 주지 않게 할 수 있음  
 (해당 용용 프로그램에 필요한 파이썬이나 패키지를 설치한 데이터 트리를 구성하는 방법)  
 > https://virtualenv.pypa.io/en/latest/  
@@ -95,11 +101,7 @@ python -m venv .venv
 ## 종료
 deactivate
 ```
-> OS와 응용프로그램간의 python version 및 package를 다르게 가져갈 수 있음  
->
-|OS의 python version 및 package  |응용프로그램의 python version 및 package |
-|---|---|
-|![OS의 환경](image/python_osenv.JPG)  |![App의 환경](image/python_appenv.JPG)  |
+
 
 ---
 ## Flask를 이용한 API 제작
