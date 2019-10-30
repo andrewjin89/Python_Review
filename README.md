@@ -65,7 +65,7 @@ pip install --no-index --find-links . <package>
 ### 가상 환경 구성
 virtualenv 혹은 venv(3.4 이후는 기본 설치) 사용  
 * 가상 환경을 구축하여 서로 다른 응용 프로그램간의 영향을 주지 않게 할 수 있음  
-(해당 용용 프로그램에 필요한 파이썬이나 패키지를 설치한 데이터 트리를 구성하는 방법)
+(해당 용용 프로그램에 필요한 파이썬이나 패키지를 설치한 데이터 트리를 구성하는 방법)  
 > https://virtualenv.pypa.io/en/latest/  
 > https://docs.python.org/3/library/venv.html#
 
