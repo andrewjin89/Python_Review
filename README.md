@@ -1,5 +1,5 @@
 # Python
-![Python기본그림](image/python.png){: width="80" height="80"}
+![Python기본그림](image/python.png)
 ## 개발 환경 셋팅
 ---
 ### 설치
