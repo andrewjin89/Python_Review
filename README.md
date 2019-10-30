@@ -1,11 +1,12 @@
 # Python
-*이미지*
+![Python기본그림](image/python.png){: width="80" height="80"}
 ## 개발 환경 셋팅
 ---
 ### 설치
+![Python설치그림](image/python_install01.png)
 http://www.python.org/downloads 에서 다운로드  
 현재(2019.10.30 기준) 3.8.0 (stable)까지 나와 있음  
-*이미지 삽입*
+![Python설치그림](image/python_install02.jpg)
 > PATH 잡아서 설치 하기
 ---
 
