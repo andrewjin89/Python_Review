@@ -105,16 +105,21 @@ deactivate
 
 
 ---
+
 ## Flask를 이용한 API 제작
 Python 기반 Web Framework 로 간단한 API, Web 서비스 제작에 사용  
 최신버전: 1.1.1(11/7)  
 > https://flask.palletsprojects.com/en/1.1.x/
+
 ---
+
 ### Flask 설치
 ```bash
 pip install flask flask-api
 ```
+
 ---
+
 ### 기본 사용법
 
 ```python
@@ -131,12 +136,15 @@ if __name__ == "__main__":
 ```bash
 > python -m flask run
 ```
->
+
+> 
 | Hello world | Server Log |
 |---|---|
 |![flaks 01](image/python_flask01.JPG)  |![flaks 02](image/python_flask02.JPG)  |
+
 ---
- 
+  
+  
 ### 라우팅: 다양한 URL을 연결 하는 방법
 ```python
 from flask import Flask
