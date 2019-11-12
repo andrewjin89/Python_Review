@@ -109,9 +109,14 @@ deactivate
 ## Flask를 이용한 API 제작
 Python 기반 Web Framework 로 간단한 API, Web 서비스 제작에 사용  
 최신버전: 1.1.1(11/7)  
-> https://flask.palletsprojects.com/en/1.1.x/
-
----
+> Flask 공식 Document: https://flask.palletsprojects.com/en/1.1.x/  
+> python web framework Rank: https://hotframeworks.com/languages/python  
+> |웹 프레임워크|설명|
+> |---|---|
+> |Django| 복잡하고 큰 Web Servicing에도 적합, 검증된 framework  |
+> |flask| 간단한 API 제작에 적합한 framework  |
+> |Aiohttp|대규모 처리에 빠른 속도를 보여 최근 뜨고 있는 framework  |
+---  
 
 ### Flask 설치
 ```bash
@@ -120,8 +125,8 @@ pip install flask flask-api
 
 ---
 
-### 기본 사용법
-
+### 기본 사용법  
+  
 ```python
 from flask import Flask     # 1. Flask 모듈 import
 app = Flask(__name__)       # 2. app에 Flask 객체 할당
@@ -145,7 +150,8 @@ if __name__ == "__main__":
 ---
   
   
-### 라우팅: 다양한 URL을 연결 하는 방법
+### 라우팅: 다양한 URL을 연결 하는 방법  
+  
 ```python
 from flask import Flask
 
@@ -172,7 +178,8 @@ if __name__ == "__main__":
 > ![flask 04](image/python_flask04.JPG)  
 ---
 
-### URL을 변수로 활용하기
+### URL을 변수로 활용하기  
+  
 ```python
 from flask import Flask
 
@@ -199,8 +206,9 @@ if __name__ == "__main__":
 > ![flask 07](image/python_flask07.JPG)  
 ---
 
-### method, code 에 따른 처리 방법
-Flask API를 통해 좀 더 유연하게 API를 제작 가능
+### method, code 에 따른 처리 방법  
+
+Flask API를 통해 좀 더 유연하게 API를 제작 가능  
 ```python
 from flask import Flask, request, render_template
 
@@ -222,17 +230,20 @@ def page_not_found(error):
     return render_template('page_not_found.html'), 404
 
 ```
-
+  
 ---
-### Web Servicing
-실제 production 환경에서는 gunicorn, apache 등의 webservicing application을 이용할 것
-#### gunicorn 설치
+### Web Servicing  
+  
+실제 production 환경에서는 gunicorn, apache 등의 webservicing application을 이용할 것  
+  
+#### gunicorn 설치  
+  
 ```bash
 pip install gunicorn
 
 gunicorn -b :port번호 --reload 파이썬파일 이름:app 
 ```
-
-## Mysql 연결
+  
+## Mysql 연결  
 
 
