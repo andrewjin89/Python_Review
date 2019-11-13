@@ -106,9 +106,11 @@ deactivate
 
 ---
 
-## Flask를 이용한 API 제작
+## Flask를 이용한 API 제작  
+
 Python 기반 Web Framework 로 간단한 API, Web 서비스 제작에 사용  
 최신버전: 1.1.1(11/7)  
+  
 > Flask 공식 Document: https://flask.palletsprojects.com/en/1.1.x/  
 > python web framework Rank: https://hotframeworks.com/languages/python  
 > |웹 프레임워크|설명|
@@ -118,7 +120,8 @@ Python 기반 Web Framework 로 간단한 API, Web 서비스 제작에 사용
 > |Aiohttp|대규모 처리에 빠른 속도를 보여 최근 뜨고 있는 framework  |
 ---  
 
-### Flask 설치
+### Flask 설치  
+
 ```bash
 pip install flask flask-api
 ```
@@ -141,7 +144,7 @@ if __name__ == "__main__":
 ```bash
 > python -m flask run
 ```
-
+  
 > 
 | Hello world | Server Log |
 |---|---|
