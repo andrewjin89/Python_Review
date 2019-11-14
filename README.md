@@ -315,6 +315,7 @@ conn.close()                # 연결 종료
 ```
   
 > 자주 사용하는 Parameters  
+>  
 > |Parameters|설명|default|  
 > |---|---|---|  
 > |host|DB서버|None|  
