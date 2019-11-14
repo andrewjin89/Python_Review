@@ -248,6 +248,136 @@ pip install gunicorn
 gunicorn -b :port번호 --reload 파이썬파일 이름:app 
 ```
   
-## Mysql 연결  
+## MySQL 연결  
+  
+python을 이용해 MySQL에 연결할 때에 pymysql, mysql-connector-python, mysqlclient 등의 MySQL adapter들이 있음  
+* PyMySQL: python으로 mysql 연결이 가장 간단함  
+* mysql-connector-python: oracle mysql 개발팀에서 만듬, 라이선스 이슈가 있음  
+* mysqlclient: 가장 빠르지만 mysql-connector-c C 라이브러리가 필요함  
 
+> MySQL adapter benchmark result URL  
+> * https://wiki.openstack.org/wiki/PyMySQL_evaluation 
+> * http://charlesnagy.info/it/python/python-mysqldb-vs-mysql-connector-query-performance  
+> * https://gist.github.com/methane/90ec97dda7fa9c7c4ef1  
+  
+### 설치  
+  
+```bash  
+python3 -m pip install PyMySQL
+python3 -m pip install PyMySQL[rsa]
+```  
+  
+> PyMySQL Docs: https://pymysql.readthedocs.io/en/latest/modules/connections.html  
+  
+### 기본 사용법  
+  
+```python
+import pymysql          # pymysql 모듈 import
+
+conn=pymysql.connect()  # 1. DB와 연결
+
+curs=conn.cursor()      # 2. cursor 생성
+
+sql = "INSERT ~~~ "
+curs.execute(sql)       # 3-1. SQL 실행
+curs.commit()           # 3-2. 실행한 SQL DB에 반영
+
+sql = "SELECT ~~~ "
+curs.execute(sql)       # 4-1. SQL 실행
+res = cursor.fetchall() # 4-2. SQL 결과문 res 변수에 저장
+
+curs.close()            # 5. 사용 완료한 cursor 종료
+
+conn.close()            # 6. DB와 연결 종료
+```  
+  
+### connect  
+  
+DB와 연결하는 소켓을 나타내는 객체  
+  
+```python
+import pymysql
+
+conn = pymysql.connect(host='****'. port=3306, user='****', passwd='****', db='****', charset='utf8')
+
+conn.commit()               # 현재 transaction commit
+
+conn.cursor()               # 커서 생성
+
+conn.ping(reconnect=True)   # DB 서버가 살아있는지 확인
+
+conn.rollback()             # 현재 transaction Rollback
+
+conn.select_db('test_db2')  # DB 변경
+
+conn.close()                # 연결 종료
+
+```
+  
+> 자주 사용하는 Parameters
+> |Parameters|설명|default|  
+> |---|---|---|  
+> |host|DB서버|None|  
+> |user|로그인할 사용자|None|  
+> |password(passwd)|비밀번호|''|  
+> |database(db)|사용할DB|None|  
+> |port|MySQL 포트|0|  
+> |charset|사용할 charset|''|  
+> |autocommit|Autocommit모드|False|  
+  
+### cursor  
+DB에서 상호 통신 하기 위한 객체  
+  
+> |cursor 종류| 설명 |  
+> |---|---|  
+> |Cursor| 기본 커서|  
+> |SSCursor| 버퍼 없는 기본 커서|  
+> |DictCursor|결과값이 Dict() 타입인 커서|  
+> |SSDictCursor|버퍼 없는 결과값이 Dict() 타입인 커서|  
+
+```python
+curs = conn.cursor()            # 커서 생성
+  
+curs.execute(query, args=None)  # query 실행, arg 안에 값을 fommating 가능함
+  
+curs.fetchall()                 # 모든 결과 row fetch
+  
+curs.fetchone()                 # 다음 결과 row 만 fetch
+  
+curs.close()                    # 커서 종료
+  
+```
+
+## Flask - PyMySQL 예제  
+  
+```python
+# index.py
+from flask import Flask
+import json
+import pymysql
+from collect import collect
+
+@app.route("/<string:app>", methods=['GET'])
+def get_job(app):
+	rows = collect.get_job(app)
+	return json.dumps(rows)
+```  
+  
+```python
+# collect.py
+class collect:
+	@staticmethod
+	def mysql_connect():
+		return pymysql.connect(host="****", user="****", passwd="****", db='****')
+
+	@staticmethod
+	def get_job(app):
+		sql = '''
+			SELECT 	DISTINCT job 
+			FROM 	jobs
+			WHERE	app = %s
+		'''
+		val = (app)
+		return collect.select_query(sql, val)	
+```
 
