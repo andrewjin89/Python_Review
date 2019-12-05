@@ -121,6 +121,17 @@ Python 기반 Web Framework 로 간단한 API, Web 서비스 제작에 사용
 > |Aiohttp|대규모 처리에 빠른 속도를 보여 최근 뜨고 있는 framework  |  
 ---  
 
+> Django vs Flask
+> || Django | Flask |
+> |---|---|---|
+> |Type of Framework | Full Stack Web Framework | WSGI Framework |
+> | Flexibility | Feature-packed | Full flexibility |
+> | ORM Usage | Built-in ORM | SQLAlchemy is used|
+> |Design|Batteries-included|Minimalisti design|
+> |Working Style|Monolithic|Diversified|
+> 
+> https://data-flair.training/blogs/flask-vs-django/
+
 ### Flask 설치  
 
 ```bash
@@ -382,3 +393,29 @@ class collect:
 		return collect.select_query(sql, val)	
 ```
 
+## Python Configration 파일
+
+### 설정 파일 구조
+> main.conf
+> ```conf
+> [SECTION 1]
+> option1 = value
+> option2 = value
+>
+> [SECTION 2]
+> option1 = value
+> option2 = value
+> ```
+
+### 사용법
+```python
+import configparser
+
+config = configparser.ConfigParser()
+config.read('/ConfigFileLocation/main.conf')
+
+section1 = config['SECTION 1']
+sec1opt1 = section1['option1']
+
+section2 = config['SECTION 2']
+```
